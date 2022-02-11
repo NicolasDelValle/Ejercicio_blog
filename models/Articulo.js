@@ -21,6 +21,7 @@ module.exports = (sequelize, Model, DataType) => {
     {
       sequelize,
       modelName: "articulo",
+      timestamps: true,
     },
   );
   console.log("[DATABASE] CREADA LA TABLA ARTICULO");

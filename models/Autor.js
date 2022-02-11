@@ -20,6 +20,7 @@ module.exports = (sequelize, Model, DataType) => {
     {
       sequelize,
       modelName: "autor",
+      timestamps: true,
     },
   );
   console.log("[DATABASE] CREADA LA TABLA AUTOR");
