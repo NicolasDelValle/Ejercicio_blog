@@ -8,20 +8,20 @@ module.exports = (sequelize, Model, DataType) => {
         primaryKey: true,
         autoIncrement: true,
       },
-      contenido: DataTypes.STRING,
+      contenido: DataType.STRING,
       email: {
-        type: DataTypes.STRING,
+        type: DataType.STRING,
         validate: {
           isEmail: true,
         },
       },
-      nombre: DataTypes.STRING,
+      nombre: DataType.STRING,
     },
     {
       sequelize,
       modelName: "comentario",
     },
   );
-
+  console.log("[DATABASE] CREADA LA TABLA COMENTARIO");
   return Comentario;
 };

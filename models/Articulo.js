@@ -1,5 +1,3 @@
-const { ValidationError } = require("sequelize/types");
-
 module.exports = (sequelize, Model, DataType) => {
   class Articulo extends Model {}
 
@@ -10,10 +8,10 @@ module.exports = (sequelize, Model, DataType) => {
         primaryKey: true,
         autoIncrement: true,
       },
-      titulo: DataTypes.STRING,
-      contenido: DataTypes.STRING,
+      titulo: DataType.STRING,
+      contenido: DataType.STRING,
       imagen: {
-        type: DataTypes.STRING,
+        type: DataType.STRING,
         validate: {
           isUrl: true,
         },
@@ -25,6 +23,6 @@ module.exports = (sequelize, Model, DataType) => {
       modelName: "articulo",
     },
   );
-
+  console.log("[DATABASE] CREADA LA TABLA ARTICULO");
   return Articulo;
 };

@@ -8,10 +8,10 @@ module.exports = (sequelize, Model, DataType) => {
         primaryKey: true,
         autoIncrement: true,
       },
-      nombre: DataTypes.STRING,
-      apellido: DataTypes.STRING,
+      nombre: DataType.STRING,
+      apellido: DataType.STRING,
       email: {
-        type: DataTypes.STRING,
+        type: DataType.STRING,
         validate: {
           isEmail: true,
         },
@@ -22,6 +22,6 @@ module.exports = (sequelize, Model, DataType) => {
       modelName: "autor",
     },
   );
-
+  console.log("[DATABASE] CREADA LA TABLA AUTOR");
   return Autor;
 };
