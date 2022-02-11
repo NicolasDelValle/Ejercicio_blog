@@ -11,6 +11,10 @@ async function seedArticulos() {
       contenido: faker.name.firstName(),
       imagen: faker.image.avatar(),
       fechaDeCreacion: faker.date.past(),
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
     });
   }
 
