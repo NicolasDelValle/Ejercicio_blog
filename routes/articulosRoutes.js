@@ -1,8 +1,8 @@
 const express = require("express");
 const route = express.Router();
-const { showArticles } = require("../controllers/articulosControllers");
+const { showAllArticles } = require("../controllers/articulosControllers");
 
-route.get("/", showArticles);
+route.get("/", showAllArticles);
 
 route.get("/articulo/:id", (req, res) => {
   res.render("articulo", { articulo });
