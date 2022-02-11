@@ -2,11 +2,7 @@ const { Articulo } = require("../models");
 
 async function showAllArticles(req, res) {
   const articles = await Articulo.findAll();
-<<<<<<< Updated upstream
   console.log(articles);
-=======
-  console.log("Entré a Home");
->>>>>>> Stashed changes
   res.render("home", { articles });
 }
 
@@ -23,9 +19,6 @@ async function showArticle(req, res) {
 
 module.exports = {
   showAllArticles,
-<<<<<<< Updated upstream
-=======
   showArticle,
->>>>>>> Stashed changes
 };
   
