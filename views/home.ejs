@@ -15,40 +15,53 @@
 
     <title>Hello, world!</title>
   </head>
-  <body>
-    <div class="container">
-      <h1>Home</h1>
-      <a class="btn btn-primary" href="/admin" role="button">Admin</a>
-      <table class="table">
-        <thead>
-          <tr>
-            <th scope="col">#</th>
-            <th scope="col">First</th>
-            <th scope="col">Last</th>
-            <th scope="col">Handle</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <th scope="row">1</th>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>@mdo</td>
-          </tr>
-          <tr>
-            <th scope="row">2</th>
-            <td>Jacob</td>
-            <td>Thornton</td>
-            <td>@fat</td>
-          </tr>
-          <tr>
-            <th scope="row">3</th>
-            <td colspan="2">Larry the Bird</td>
-            <td>@twitter</td>
-          </tr>
-        </tbody>
-      </table>
+  <body class="bg-light">
+    <!-- Navigation-->
+    <%- include("partials/nav") %>
+    <!-- Page Header-->
+    <header class="masthead" style="background-image: url('assets/home-bg.jpg')">
+      <div class="container position-relative px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 justify-content-center">
+          <div class="col-md-10 col-lg-8 col-xl-7">
+            <div class="site-heading">
+              <h1>Clean Blog</h1>
+              <span class="subheading">A Blog Theme by Start Bootstrap</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+    <!-- Main Content-->
+    <div class="container px-4 px-lg-5">
+      <div class="row gx-4 gx-lg-5 justify-content-center">
+        <div class="col-md-10 col-lg-8 col-xl-7">
+          <!-- Post preview-->
+          <% for(const articulo of Articulos) { console.log(articulo.id)%>
+          <a href="/articulo/<%- articulo.id %> " class="text-decoration-none">
+            <div
+              class="post-preview bg-white d-flex align-items-center m-3 p-2 border-start border-3 rounded-end"
+            >
+              <img class="h-100" src="<%- articulo.imagen %> " alt="Imagen de articulo" />
+              <div class="p-2">
+                <h2 class="text-dark m-0 p-0"><%- articulo.titulo %></h2>
+                <p
+                  class="overflow-hidden w-10 text-secondary m-0 p-0 fs-6"
+                  style="max-height: 75px"
+                >
+                  <%- articulo.contenido %>
+                </p>
+              </div>
+            </div>
+          </a>
+          <hr class="my-4" />
+          <% } %>
+          <!-- Divider-->
+          <!-- Post preview-->
+        </div>
+      </div>
     </div>
+    <!-- Footer-->
+    <%- include("partials/footer") %>
 
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
