@@ -1,19 +1,22 @@
-const { Articulo } = require("../models");
+const { Articulo, Autor, Comentario } = require("../models");
 
 async function showAllArticles(req, res) {
   const Articulos = await Articulo.findAll();
-  console.log("[USUARIO]Entro al home y existen : ( " + Articulos.length + " ) usuarios");
+  //console.log(Articulos);
   res.render("home", { Articulos });
 }
 
 async function showArticle(req, res) {
   const { id } = req.params;
+  //console.log(id);
 
-  const article = await Articulo.findByPk(id);
+  const articulo = await Articulo.findAll({include : [Autor, Comentario], where : {id : id}});
 
-  console.log("[USUARIO]Entró a un artículo");
+  console.log(articulo[0].autor.nombre);
 
-  res.render("articulo", { article });
+  //res.json(articulo);
+
+  res.render("articulo", { articulo });
 }
 
 module.exports = {

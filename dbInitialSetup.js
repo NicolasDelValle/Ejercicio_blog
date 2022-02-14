@@ -8,4 +8,5 @@ module.exports = async () => {
   // Ejecutar seeders (datos de prueba):
   await require("./seeders/autorSeeder");
   await require("./seeders/articuloSeeder");
+  await require("./seeders/comentarioSeeder");
 };

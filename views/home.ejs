@@ -53,7 +53,9 @@
                   >
                 </h5>
 
-                <p class="card-text"><%- articulo.contenido %></p>
+                <p class="card-text"><%- articulo.contenido.substring(0,100) + "..." %></p>
+
+                <a href="/articulo/<%- articulo.id %>" class="btn btn-primary" style="float: right;">Ver más</a>
               </div>
             </div>
           </div>
