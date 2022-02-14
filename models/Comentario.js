@@ -8,7 +8,7 @@ module.exports = (sequelize, Model, DataType) => {
         primaryKey: true,
         autoIncrement: true,
       },
-      contenido: DataType.STRING,
+      contenido: DataType.STRING(900),
       email: {
         type: DataType.STRING,
         validate: {
