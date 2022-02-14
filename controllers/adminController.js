@@ -3,8 +3,7 @@ const { Articulo } = require("../models");
 async function showAdmin(req, res) {
   const articulo = await Articulo.findAll();
   console.log(articulo);
-  //res.render("admin", { articulo });
-  res.json(articulo);
+  res.render("admin", { articulo });
 }
 
 async function deleteArticle(req, res) {
