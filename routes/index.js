@@ -4,6 +4,6 @@ const articulosRutas = require("./articulosRoutes");
 const adminRutas = require("./adminRoutes");
 
 route.use(articulosRutas);
-route.use(adminRutas);
+route.use("/admin", adminRutas);
 
 module.exports = route;

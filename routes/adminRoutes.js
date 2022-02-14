@@ -2,16 +2,16 @@ const express = require("express");
 
 const route = express.Router();
 
-const { showAdmin, deleteArticle, updateArticle } = require("../controllers/adminController"); //Controladores
+const {
+  showAdmin,
+  deleteArticle,
+  updateArticle,
+  createArticle,
+} = require("../controllers/adminController"); //Controladores
 
-route.get("/admin", showAdmin);
-route.get("/admin/eliminar/:id", deleteArticle);
-route.post("/admin/modificar/:id", updateArticle);
-
-route.get("/admin/crear/:id", (req, res) => {
-  const { id } = req.params;
-
-  res.redirect("/crear");
-});
+route.get("/", showAdmin);
+route.get("/eliminar/:id", deleteArticle);
+route.post("/modificar/:id", updateArticle);
+route.post("/crear", createArticle);
 
 module.exports = route;
