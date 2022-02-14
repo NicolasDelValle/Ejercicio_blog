@@ -10,6 +10,7 @@
 [GET]/admin/modificar/:id > redirecciona a modificar.ejs
 [POST]/admin/modificar/:id
 [POST]/admin/crear > redirecciona a crear.ejs
+
 [GET]/api/articulos
 
 ::Tablas

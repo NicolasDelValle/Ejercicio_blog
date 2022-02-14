@@ -8,7 +8,7 @@ async function seedArticulos() {
   for (let i = 0; i < 10; i++) {
     articulos.push({
       titulo: faker.name.firstName(),
-      contenido: faker.name.firstName(),
+      contenido: faker.lorem.paragraph(),
       imagen: faker.image.avatar(),
       fechaDeCreacion: faker.date.past(),
     });

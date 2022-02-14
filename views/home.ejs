@@ -31,33 +31,44 @@
         </div>
       </div>
     </header>
+
+
     <!-- Main Content-->
     <div class="container px-4 px-lg-5">
-      <div class="row gx-4 gx-lg-5 justify-content-center">
-        <div class="col-md-10 col-lg-8 col-xl-7">
-          <!-- Post preview-->
-          <% for(const articulo of Articulos) { console.log(articulo.id)%>
-          <a href="/articulo/<%- articulo.id %> " class="text-decoration-none">
-            <div
-              class="post-preview bg-white d-flex align-items-center m-3 p-2 border-start border-3 rounded-end"
-            >
-              <img class="h-100" src="<%- articulo.imagen %> " alt="Imagen de articulo" />
-              <div class="p-2">
-                <h2 class="text-dark m-0 p-0"><%- articulo.titulo %></h2>
-                <p
-                  class="overflow-hidden w-10 text-secondary m-0 p-0 fs-6"
-                  style="max-height: 75px"
-                >
-                  <%- articulo.contenido %>
-                </p>
+      <div class="row gx-4 gx-lg-5">
+
+        <% for(const articulo of Articulos) { console.log(articulo.id)%>
+        <div class="col-xs-12 col-sm-12 col-lg-6">
+
+          <div class="card m-3 shadow rounded-end">
+              <div
+                class="card-body bg-white d-flex align-items-center p-2"
+              >
+                <div class="img-container">
+                  <a href="/articulo/<%- articulo.id %>">
+                    <img class="mh-100" src="<%- articulo.imagen %> " alt="Imagen de articulo" />
+                  </a>
+                </div>
+
+                <div class="p-2">
+
+                  <h5 class="text-dark card-title">
+                    <a href="/articulo/<%- articulo.id %>" class="text-decoration-none"><%- articulo.titulo %></a>
+                  </h5>
+                
+                  
+                  <p
+                    class="card-text"
+                  >
+                    <%- articulo.contenido %>
+                  </p>
+                </div>
               </div>
             </div>
-          </a>
-          <hr class="my-4" />
-          <% } %>
+        </div>
+        <% } %>
           <!-- Divider-->
           <!-- Post preview-->
-        </div>
       </div>
     </div>
     <!-- Footer-->

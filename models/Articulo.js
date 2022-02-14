@@ -9,7 +9,7 @@ module.exports = (sequelize, Model, DataType) => {
         autoIncrement: true,
       },
       titulo: DataType.STRING,
-      contenido: DataType.STRING,
+      contenido: DataType.STRING(900),
       imagen: {
         type: DataType.STRING,
         validate: {
