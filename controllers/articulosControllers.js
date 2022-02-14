@@ -10,9 +10,7 @@ async function showArticle(req, res) {
   const { id } = req.params;
   //console.log(id);
 
-  const articulo = await Articulo.findAll({include : [Autor, Comentario], where : {id : id}});
-
-  console.log(articulo[0].autor.nombre);
+  const articulo = await Articulo.findAll({ include: [Autor, Comentario], where: { id: id } });
 
   //res.json(articulo);
 

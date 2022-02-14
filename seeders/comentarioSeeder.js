@@ -14,6 +14,6 @@ async function seedComentario() {
   }
 
   await Comentario.bulkCreate(comentario);
-  console.log("[SEEDER] Se corrió el seeder de Autores.");
+  console.log("[SEEDER] Se corrió el seeder de Comentarios.");
 }
 module.exports = seedComentario();
