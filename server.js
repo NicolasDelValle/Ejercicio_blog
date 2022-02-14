@@ -13,7 +13,7 @@ app.set("view engine", "ejs");
 
 app.use(routes);
 
-dbInitailSetup();
+//dbInitailSetup();
 
 app.listen(APP_PORT, () => {
   console.log(`[Express] Servidor Corriendo en el puerto: ${APP_PORT}`);
