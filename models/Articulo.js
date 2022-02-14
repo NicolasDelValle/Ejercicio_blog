@@ -10,12 +10,7 @@ module.exports = (sequelize, Model, DataType) => {
       },
       titulo: DataType.STRING,
       contenido: DataType.STRING(900),
-      imagen: {
-        type: DataType.STRING,
-        validate: {
-          isUrl: true,
-        },
-      },
+      imagen: DataType.STRING,
       fechaDeCreacion: DataType.DATE,
     },
     {

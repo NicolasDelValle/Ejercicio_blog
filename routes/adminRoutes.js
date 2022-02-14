@@ -2,7 +2,7 @@ const express = require("express");
 
 const route = express.Router();
 
-const { showAdmin, deleteArticle, updateArticle } = require("../controllers/adminController");
+const { showAdmin, deleteArticle, updateArticle } = require("../controllers/adminController"); //Controladores
 
 route.get("/admin", showAdmin);
 route.get("/admin/eliminar/:id", deleteArticle);

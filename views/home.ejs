@@ -32,43 +32,34 @@
       </div>
     </header>
 
-
     <!-- Main Content-->
     <div class="container px-4 px-lg-5">
       <div class="row gx-4 gx-lg-5">
-
-        <% for(const articulo of Articulos) { console.log(articulo.id)%>
+        <% for(const articulo of articulos) { console.log(articulo.id)%>
         <div class="col-xs-12 col-sm-12 col-lg-6">
-
           <div class="card m-3 shadow rounded-end">
-              <div
-                class="card-body bg-white d-flex align-items-center p-2"
-              >
-                <div class="img-container">
-                  <a href="/articulo/<%- articulo.id %>">
-                    <img class="mh-100" src="<%- articulo.imagen %> " alt="Imagen de articulo" />
-                  </a>
-                </div>
+            <div class="card-body bg-white d-flex align-items-center p-2">
+              <div class="img-container">
+                <a href="/articulo/<%- articulo.id %>">
+                  <img class="mh-100" src="<%- articulo.imagen %> " alt="Imagen de articulo" />
+                </a>
+              </div>
 
-                <div class="p-2">
-
-                  <h5 class="text-dark card-title">
-                    <a href="/articulo/<%- articulo.id %>" class="text-decoration-none"><%- articulo.titulo %></a>
-                  </h5>
-                
-                  
-                  <p
-                    class="card-text"
+              <div class="p-2">
+                <h5 class="text-dark card-title">
+                  <a href="/articulo/<%- articulo.id %>" class="text-decoration-none"
+                    ><%- articulo.titulo %></a
                   >
-                    <%- articulo.contenido %>
-                  </p>
-                </div>
+                </h5>
+
+                <p class="card-text"><%- articulo.contenido %></p>
               </div>
             </div>
+          </div>
         </div>
         <% } %>
-          <!-- Divider-->
-          <!-- Post preview-->
+        <!-- Divider-->
+        <!-- Post preview-->
       </div>
     </div>
     <!-- Footer-->
