@@ -1,1 +1,86 @@
 <!-- Maxi -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <title>Crear artículo</title>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Crear artículo</h1>
+
+      <form action="/admin/crear" method="POST" enctype="multipart/form-data">
+        <div class="mb-3">
+          <label for="input-nombre" class="form-label">Nombre</label>
+          <input
+            type="text"
+            class="form-control"
+            id="input-nombre"
+            name="nombre"
+            placeholder="Ingrese su nombre"
+          />
+        </div>
+        <div class="mb-3">
+          <label for="input-nombre" class="form-label">Apellido</label>
+          <input
+            type="text"
+            class="form-control"
+            id="input-nombre"
+            name="apellido"
+            placeholder="Ingrese su apellido"
+          />
+        </div>
+        <div class="mb-3">
+          <label for="input-email" class="form-label">Email</label>
+          <input
+            type="email"
+            class="form-control"
+            id="input-email"
+            placeholder="Ingrese su email"
+            name="email"
+          />
+        </div>
+        <div class="mb-3">
+          <label for="input-titulo" class="form-label">Titulo</label>
+          <input
+            type="text"
+            class="form-control"
+            id="input-titulo"
+            name="titulo"
+            placeholder="Titulo del artículo"
+          />
+        </div>
+        <div class="mb-3">
+          <label for="input-imagen" class="form-label">Seleccionar una imagen</label>
+          <input id="input-imagen" name="imagen" type="file" class="form-control" />
+        </div>
+        <div class="form-floating mb-3">
+          <textarea
+            class="form-control"
+            placeholder="Ingrese el contenido del artículo"
+            id="text-area-contenido"
+            name="contenido"
+          ></textarea>
+          <label for="text-area-contenido">Contenido</label>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+    </div>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
