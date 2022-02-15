@@ -18,7 +18,7 @@ module.exports = (sequelize, Model, DataType) => {
           isEmail: true,
         },
       },
-      contraseña: DataType.STRING,
+      password: DataType.STRING,
     },
     {
       sequelize,
