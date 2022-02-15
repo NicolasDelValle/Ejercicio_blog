@@ -8,10 +8,10 @@ function register(req, res) {
    const usuarioData = req.body
     await User.create(
       {
-        nombre: usuarioData.nombre,
-        apellido: usuarioData.apellido,
+        nombre: usuarioData.Name,
+        apellido: usuarioData.Lastname,
         email: usuarioData.email,
-        contraseña: usuarioData.contraseña,
+        contraseña: usuarioData.password,
       },
     );
     res.redirect("/")
