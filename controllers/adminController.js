@@ -1,31 +1,31 @@
 const { Articulo, Autor } = require("../models");
 const formidable = require("formidable");
 
-async function showAdmin(req, res) {
+async function mostrarArticulosAdmin(req, res) {
   const Articulos = await Articulo.findAll();
   res.render("admin", { Articulos });
 }
 
-async function deleteArticle(req, res) {
+async function borrarArticulo(req, res) {
   const { id } = req.params;
   await Articulo.destroy({ where: { id: id } });
   res.redirect("/admin");
 }
 
-async function renderUpdateArticle(req, res) {
+async function renderModificarArticulo(req, res) {
   res.render("modificar");
 }
 
-async function updateArticle(req, res) {
+async function modificarArticulo(req, res) {
   const { id } = req.params;
   const { titulo, contenido, imagen } = req.body;
   await Articulo.update({ contenido, titulo, imagen }, { where: { id: id } });
   res.redirect("/admin");
 }
-async function renderCreateArticle(req, res) {
+async function renderCrearArticulo(req, res) {
   res.render("crear");
 }
-async function createArticle(req, res) {
+async function crearArticulo(req, res) {
   const form = formidable({
     multiples: false,
     uploadDir: __dirname + "/../public/assets",
@@ -79,10 +79,10 @@ async function createArticle(req, res) {
 }
 
 module.exports = {
-  showAdmin,
-  deleteArticle,
-  updateArticle,
-  createArticle,
-  renderCreateArticle,
-  renderUpdateArticle,
+  mostrarArticulosAdmin,
+  borrarArticulo,
+  modificarArticulo,
+  crearArticulo,
+  renderCrearArticulo,
+  renderModificarArticulo,
 };
