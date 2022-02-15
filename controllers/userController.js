@@ -1,7 +1,27 @@
 const {User} = require("../models");
 
 
-async function register(req, res) {
-    const Articulos = await Articulo.findAll();
-    res.render("admin", { Articulos });
+function register(req, res) {
+    res.render("register");
+  }
+  async function storeUser(req, res) {
+   const usuarioData = req.body
+    await User.create(
+      {
+        nombre: usuarioData.nombre,
+        apellido: usuarioData.apellido,
+        email: usuarioData.email,
+        contraseña: usuarioData.contraseña,
+      },
+    );
+    res.redirect("/")
+  }
+  function login(req, res) {
+    res.render("login")
+  }
+  
+  module.exports = {
+    register,
+    storeUser,
+    login,
   }
