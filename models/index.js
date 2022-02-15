@@ -12,7 +12,7 @@ const sequelize = new Sequelize(
   },
 );
 
-const Autor = require("./Autor")(sequelize, Model, DataTypes);
+const User = require("./User")(sequelize, Model, DataTypes);
 const Comentario = require("./Comentario")(sequelize, Model, DataTypes);
 const Articulo = require("./Articulo")(sequelize, Model, DataTypes);
 
@@ -20,13 +20,13 @@ const Articulo = require("./Articulo")(sequelize, Model, DataTypes);
 // entre los mismos...
 
 Comentario.belongsTo(Articulo);
-Articulo.belongsTo(Autor);
+Articulo.belongsTo(User);
 Articulo.hasMany(Comentario);
-Autor.hasMany(Articulo);
+User.hasMany(Articulo);
 
 module.exports = {
   sequelize,
-  Autor,
+  User,
   Comentario,
   Articulo,
 };

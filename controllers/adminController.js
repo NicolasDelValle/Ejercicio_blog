@@ -1,4 +1,4 @@
-const { Articulo, Autor } = require("../models");
+const { Articulo, User } = require("../models");
 const formidable = require("formidable");
 
 async function mostrarArticulosAdmin(req, res) {
@@ -39,18 +39,18 @@ async function crearArticulo(req, res) {
     console.log("___________");
     console.log(`${apellido} ${nombre} ${email} ${titulo} ${files} ${contenido}`);
 
-    const autores = await Autor.findOne({
+    const autores = await User.findOne({
       where: {
         email,
       },
     });
     if (autores === null) {
-      await Autor.create({
+      await User.create({
         nombre,
         apellido,
         email,
       });
-      const { id } = await Autor.findOne({
+      const { id } = await User.findOne({
         where: {
           email,
         },
@@ -62,7 +62,7 @@ async function crearArticulo(req, res) {
         autorId: id,
       });
     } else {
-      const { id } = await Autor.findOne({
+      const { id } = await User.findOne({
         where: {
           email,
         },

@@ -1,7 +1,7 @@
 module.exports = (sequelize, Model, DataType) => {
-  class Autor extends Model {}
+  class User extends Model {}
 
-  Autor.init(
+  User.init(
     {
       id: {
         type: DataType.BIGINT.UNSIGNED,
@@ -19,10 +19,10 @@ module.exports = (sequelize, Model, DataType) => {
     },
     {
       sequelize,
-      modelName: "autor",
+      modelName: "User",
       timestamps: true,
     },
   );
-  console.log("[DATABASE] CREADA LA TABLA AUTOR");
-  return Autor;
+  console.log("[DATABASE] CREADA LA TABLA USER");
+  return User;
 };
