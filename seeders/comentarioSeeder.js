@@ -10,6 +10,8 @@ async function seedComentario() {
       contenido: faker.lorem.paragraph(),
       email: faker.internet.email(),
       nombre: faker.name.firstName(),
+      userId: faker.datatype.number({ min: 1, max: 10 }),
+      articuloId: faker.datatype.number({ min: 1, max: 10 }),
     });
   }
 

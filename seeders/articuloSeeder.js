@@ -11,6 +11,7 @@ async function seedArticulos() {
       contenido: faker.lorem.paragraph(),
       imagen: faker.image.avatar(),
       fechaDeCreacion: faker.date.past(),
+      userId: faker.datatype.number({ min: 1, max: 10 }),
     });
   }
 

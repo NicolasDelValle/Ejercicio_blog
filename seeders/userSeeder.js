@@ -10,6 +10,7 @@ async function seedAutor() {
       nombre: faker.name.firstName(),
       apellido: faker.name.firstName(),
       email: faker.internet.email(),
+      userId: faker.datatype.number({ min: 1, max: 10 }),
     });
   }
 

@@ -21,8 +21,8 @@ const Articulo = require("./Articulo")(sequelize, Model, DataTypes);
 
 User.hasMany(Articulo);
 User.hasMany(Comentario);
-Articulo.belongsTo(User);
 Articulo.hasMany(Comentario);
+Articulo.belongsTo(User);
 Comentario.belongsTo(User);
 Comentario.belongsTo(Articulo);
 
