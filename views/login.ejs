@@ -35,9 +35,10 @@
 
     <!-- Main Content-->
     <div class="container px-4 px-lg-5">
-      <section class="rounden-3 shadow bg-white p-5 mt-5 mx-auto d-flex align-items-center justify-content-center">
-        <form action="/login" method="POST">
-            <div class="mb-3">
+      <section class="row rounded-3 shadow bg-white py-5 my-5 mx-auto justify-content-center" style="width: 60%;">
+          <form action="/login" method="POST" class="col-lg-8">
+            <h1 class="mb-4">Login de usuario</h1>
+            <div class="my-3">
               <label for="email" class="form-label">Email</label>
               <input
                 type="email"
@@ -47,11 +48,11 @@
                 placeholder="Ingrese su email aquí..."
                 aria-describedby="email"
               />
-            <div class="mb-3">
+            <div class="my-3">
               <label for="password" class="form-label">Contraseña</label>
               <input type="password" class="form-control" id="password" name="password" placeholder="Ingrese su contraseña aquí..." />
             </div>
-            <button type="submit" class="btn btn-primary">Login</button>
+            <button type="submit" class="btn btn-primary mt-3">Login</button>
           </form>
       </section>
     </div>
