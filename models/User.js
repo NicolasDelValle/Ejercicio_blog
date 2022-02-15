@@ -1,3 +1,5 @@
+const bcrypt = require("bcryptjs");
+
 module.exports = (sequelize, Model, DataType) => {
   class User extends Model {}
 
@@ -14,10 +16,9 @@ module.exports = (sequelize, Model, DataType) => {
         type: DataType.STRING,
         validate: {
           isEmail: true,
-
         },
       },
-      contraseña:DataType.STRING,
+      contraseña: DataType.STRING,
     },
     {
       sequelize,

@@ -21,16 +21,22 @@
                         </div>
                         <div class="card-body p-4 p-sm-5">
                             <h5 class="card-title text-center mb-5 fw-light fs-5">Registrarse</h5>
-                            <form>
+                            <form action="/register" method="POST">
 
                                 <div class="form-floating mb-3">
-                                    <input type="text" class="form-control" id="floatingInputUsername"
+                                    <input type="text" name="Name" class="form-control" id="floatingInputUsername"
                                         placeholder="myusername" required autofocus>
                                     <label for="floatingInputUsername">Nombre de usuario</label>
                                 </div>
 
                                 <div class="form-floating mb-3">
-                                    <input type="email" class="form-control" id="floatingInputEmail"
+                                    <input type="text" name="Lastname" class="form-control" id="floatingInputUsername"
+                                        placeholder="myusername" required autofocus>
+                                    <label for="floatingInputUsername">Apellido</label>
+                                </div>
+
+                                <div class="form-floating mb-3">
+                                    <input type="email" name="email" class="form-control" id="floatingInputEmail"
                                         placeholder="name@example.com">
                                     <label for="floatingInputEmail">Dirección de email</label>
                                 </div>
@@ -38,14 +44,14 @@
                                 <hr>
 
                                 <div class="form-floating mb-3">
-                                    <input type="password" class="form-control" id="floatingPassword"
+                                    <input type="password" name="password" class="form-control" id="floatingPassword"
                                         placeholder="Password">
                                     <label for="floatingPassword">Contraseña</label>
                                 </div>
 
                                 <div class="form-floating mb-3">
-                                    <input type="password" class="form-control" id="floatingPasswordConfirm"
-                                        placeholder="Confirm Password">
+                                    <input type="password" name="confirm-password" class="form-control"
+                                        id="floatingPasswordConfirm" placeholder="Confirm Password">
                                     <label for="floatingPasswordConfirm">Confirmar Contraseña</label>
                                 </div>
 
