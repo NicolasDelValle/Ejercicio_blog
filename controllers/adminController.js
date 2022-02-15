@@ -11,13 +11,18 @@ async function deleteArticle(req, res) {
   await Articulo.destroy({ where: { id: id } });
   res.redirect("/admin");
 }
+
+async function renderUpdateArticle(req, res) {
+  res.render("modificar");
+}
+
 async function updateArticle(req, res) {
   const { id } = req.params;
   const { titulo, contenido, imagen } = req.body;
   await Articulo.update({ contenido, titulo, imagen }, { where: { id: id } });
   res.redirect("/admin");
 }
-async function getCreateArticle(req, res) {
+async function renderCreateArticle(req, res) {
   res.render("crear");
 }
 async function createArticle(req, res) {
@@ -29,6 +34,9 @@ async function createArticle(req, res) {
   form.parse(req, async (err, fields, files) => {
     const { nombre, apellido, email, titulo, contenido } = fields;
     console.log(files);
+    console.log("___________");
+    console.log(fields);
+    console.log("___________");
     console.log(`${apellido} ${nombre} ${email} ${titulo} ${files} ${contenido}`);
 
     const autores = await Autor.findOne({
@@ -75,5 +83,6 @@ module.exports = {
   deleteArticle,
   updateArticle,
   createArticle,
-  getCreateArticle,
+  renderCreateArticle,
+  renderUpdateArticle,
 };

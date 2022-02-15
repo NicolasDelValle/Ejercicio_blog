@@ -7,13 +7,15 @@ const {
   deleteArticle,
   updateArticle,
   createArticle,
-  getCreateArticle,
+  renderCreateArticle,
+  renderUpdateArticle,
 } = require("../controllers/adminController"); //Controladores
 
 route.get("/", showAdmin);
 route.get("/eliminar/:id", deleteArticle);
 route.post("/modificar/:id", updateArticle);
-route.get("/crear", getCreateArticle);
+route.get("/modificar/:id", renderUpdateArticle);
+route.get("/crear", renderCreateArticle);
 route.post("/crear", createArticle);
 
 module.exports = route;
