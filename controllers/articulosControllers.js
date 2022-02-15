@@ -1,4 +1,4 @@
-const { Articulo, Autor, Comentario } = require("../models");
+const { Articulo, User, Comentario } = require("../models");
 
 async function showAllArticles(req, res) {
   const Articulos = await Articulo.findAll();
@@ -10,7 +10,7 @@ async function showArticle(req, res) {
   const { id } = req.params;
   //console.log(id);
 
-  const articulo = await Articulo.findAll({ include: [Autor, Comentario], where: { id: id } });
+  const articulo = await Articulo.findAll({ include: [User, Comentario], where: { id: id } });
 
   //res.json(articulo);
 
