@@ -15,6 +15,22 @@ async function seedArticulos() {
     });
   }
 
+  articulos.push({
+    titulo: "Luis",
+      contenido: faker.lorem.paragraph(),
+      imagen: faker.image.avatar(),
+      fechaDeCreacion: faker.date.past(),
+      userId: 11,
+  })
+
+  articulos.push({
+    titulo: "Luis",
+      contenido: faker.lorem.paragraph(),
+      imagen: faker.image.avatar(),
+      fechaDeCreacion: faker.date.past(),
+      userId: 11,
+  })
+
   await Articulo.bulkCreate(articulos);
   console.log("[SEEDER] Se corrió el seeder de Articulos.");
 }
