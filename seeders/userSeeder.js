@@ -10,7 +10,7 @@ async function seedAutor() {
       nombre: faker.name.firstName(),
       apellido: faker.name.firstName(),
       email: faker.internet.email(),
-      contraseña:faker.internet.password(),
+      password: faker.internet.password(),
       
     });
   }
