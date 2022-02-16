@@ -19,7 +19,7 @@ async function showArticle(req, res) {
     const text = req.body;
     await Comentario.create({
       contenido: text.comment,
-      userId: text.userId,
+      userId: req.user.id,
       articuloId: req.params.id,
     });
     res.redirect(`/articulo/${req.params.id}`);
