@@ -8,7 +8,6 @@ const {
   renderCrearArticulo,
   renderModificarArticulo,
 } = require("../controllers/adminController"); //Controladores
-const router = require("./publicRoutes");
 
 route.get("/", mostrarArticulosAdmin);
 route.get("/eliminar/:id", borrarArticulo);

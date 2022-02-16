@@ -10,21 +10,22 @@ async function showAllArticles(req, res) {
 async function showArticle(req, res) {
   const { id } = req.params;
   //console.log(id);
-
-  const articulo = await Articulo.findAll({ include: [User, Comentario], where: { id: id } })
+  
+  const articulo = await Articulo.findByPk(req.params.id, { include: { all: true, nested: true } });
   //res.json(articulo);
   res.render("articulo", { articulo });
 }
   async function storeComments(req, res) {
     const text = req.body;
-    await Comment.create({
-      content: text.comment,
+    await Comentario.create({
+      contenido: text.comment,
       userId: text.userId,
-      articleId: req.params.id,
+      articuloId: req.params.id,
     });
-    res.redirect(`/articles/${req.params.id}`);
+    res.redirect(`/articulo/${req.params.id}`);
   }
 module.exports = {
   showAllArticles,
   showArticle,
+  storeComments,
 };
