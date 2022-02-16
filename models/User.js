@@ -3,10 +3,10 @@ const bcrypt = require("bcryptjs");
 module.exports = (sequelize, Model, DataType) => {
   class User extends Model {}
 
-  sequelize.addHook("beforeCreate", async(user) => {
-    const hashedPassword = await bcrypt.hash(user.password, 8);
-    user.password = hashedPassword;
-  });
+  // sequelize.addHook("beforeCreate", async(user) => {
+  //   const hashedPassword = await bcrypt.hash(user.password, 8);
+  //   user.password = hashedPassword;
+  // });
 
   User.init(
     {
@@ -31,6 +31,11 @@ module.exports = (sequelize, Model, DataType) => {
       timestamps: true,
     },
   );
+
+  User.beforeCreate(async (user, options) => {
+    const hashedPassword = await bcrypt.hash(user.password, 8);
+    user.password = hashedPassword;
+  });
 
   console.log("[DATABASE] CREADA LA TABLA USER");
   return User;

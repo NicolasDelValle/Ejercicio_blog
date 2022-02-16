@@ -15,6 +15,13 @@ async function seedAutor() {
     });
   }
 
+  user.push({
+    nombre: "Luis",
+      apellido: "López",
+      email: "luis@gmail.com",
+      password: "12345",
+  });
+
   await User.bulkCreate(user);
   console.log("[SEEDER] Se corrió el seeder de Autores.");
 }

@@ -1,7 +1,6 @@
 const express = require("express");
-
 const route = express.Router();
-
+const myAuthenticate = require("../middlewares/ensureAuthenticated");
 const {
   mostrarArticulosAdmin,
   borrarArticulo,
