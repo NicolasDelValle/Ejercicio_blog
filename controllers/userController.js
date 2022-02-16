@@ -20,8 +20,8 @@ function login(req, res) {
   res.render("login");
 }
 
-function logout(req, res) {
-  req.logout();
+async function logout(req, res) {
+ await req.logout();
   res.redirect('/');
 }
 
