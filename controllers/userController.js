@@ -1,4 +1,5 @@
 const { User } = require("../models");
+const passport = require("passport")
 
 function register(req, res) {
   res.render("register");
@@ -19,8 +20,14 @@ function login(req, res) {
   res.render("login");
 }
 
+function logout(req, res) {
+  req.logout();
+  res.redirect('/');
+}
+
 module.exports = {
   register,
   storeUser,
   login,
+  logout,
 };

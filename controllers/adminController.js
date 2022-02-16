@@ -2,7 +2,7 @@ const { Articulo, User } = require("../models");
 const formidable = require("formidable");
 
 async function mostrarArticulosAdmin(req, res) {
-  const articulos = await Articulo.findAll();
+  const articulos = await Articulo.findAll( {where: { userId: req.user.id }});
   res.render("admin", { articulos });
 }
 

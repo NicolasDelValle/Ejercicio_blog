@@ -1,5 +1,5 @@
 const express = require("express");
-const { register, storeUser, login } = require("../controllers/userController");
+const { register, storeUser, login, logout } = require("../controllers/userController");
 const router = express.Router();
 const passport = require("passport");
 
@@ -17,6 +17,6 @@ router.post(
   }),
 );
 
-// router.get("/logout", logout);
+router.get("/logout", logout);
 
 module.exports = router;
