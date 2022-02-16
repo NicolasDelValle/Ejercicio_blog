@@ -13,7 +13,6 @@ async function showArticle(req, res) {
   const articulo = await Articulo.findAll({ include: [User, Comentario], where: { id: id } });
 
   //res.json(articulo);
-  console.log(articulo);
   res.render("articulo", { articulo });
 }
 

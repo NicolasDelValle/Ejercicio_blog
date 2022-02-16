@@ -8,9 +8,7 @@ const app = express();
 const session = require("express-session");
 const passport = require("./passport");
 
-var SequelizeStore = require("connect-session-sequelize")(session.Store);
-
-// create database, ensure 'sqlite3' in your package.json
+const SequelizeStore = require("connect-session-sequelize")(session.Store);
 const { sequelize } = require("./models");
 
 app.use(
