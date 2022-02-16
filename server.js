@@ -7,6 +7,7 @@ const APP_PORT = process.env.APP_PORT || 3000;
 const app = express();
 const session = require("express-session");
 const passport = require("./passport");
+const userGloubally = require("./middlewares/userGloubally")
 
 const SequelizeStore = require("connect-session-sequelize")(session.Store);
 const { sequelize } = require("./models");
@@ -27,7 +28,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.set("view engine", "ejs");
 passport(app);
-app.use(routes);
+app.use(userGloubally, routes);
 
 dbInitialSetup();
 
