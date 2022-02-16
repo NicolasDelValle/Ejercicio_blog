@@ -1,10 +1,10 @@
 const { Articulo, User, Comentario } = require("../models");
 
 async function showAllArticles(req, res) {
-  const Articulos = await Articulo.findAll();
+  const articulos = await Articulo.findAll();
   //console.log(Articulos);
   const user = req.user
-  res.render("home", { Articulos, user });
+  res.render("home", { articulos, user });
 }
 
 async function showArticle(req, res) {
