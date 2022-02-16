@@ -1,9 +1,9 @@
-const { Articulo, Autor } = require("../models");
+const { Articulo, User } = require("../models");
 const formidable = require("formidable");
 
 async function mostrarArticulosAdmin(req, res) {
-  const Articulos = await Articulo.findAll();
-  res.render("admin", { Articulos });
+  const articulos = await Articulo.findAll( {where: { userId: req.user.id }});
+  res.render("admin", { articulos });
 }
 
 async function borrarArticulo(req, res) {
@@ -39,18 +39,18 @@ async function crearArticulo(req, res) {
     console.log("___________");
     console.log(`${apellido} ${nombre} ${email} ${titulo} ${files} ${contenido}`);
 
-    const autores = await Autor.findOne({
+    const autores = await User.findOne({
       where: {
         email,
       },
     });
     if (autores === null) {
-      await Autor.create({
+      await User.create({
         nombre,
         apellido,
         email,
       });
-      const { id } = await Autor.findOne({
+      const { id } = await User.findOne({
         where: {
           email,
         },
@@ -62,7 +62,7 @@ async function crearArticulo(req, res) {
         autorId: id,
       });
     } else {
-      const { id } = await Autor.findOne({
+      const { id } = await User.findOne({
         where: {
           email,
         },
@@ -77,6 +77,37 @@ async function crearArticulo(req, res) {
     res.redirect("/admin");
   });
 }
+function crearNuevoArticulo(req, res) {
+  res.render("crear-articulo")
+}
+async function guardarArticulo (req, res) {
+  const articulo = req.body;
+    await Articulo.create({
+      titulo: articulo.titulo,
+      contenido: articulo.contenido,
+      imagen: articulo.imagen,
+      userId: req.user.id,
+    });
+  res.redirect("/")
+}
+
+async function editarArticulo(req, res) {
+  const articulo = await Articulo.findByPk(req.params.id, { include: { all: true, nested: true } });
+  res.render("editar-articulo", { articulo })
+}
+async function actualizarArticulo(req, res) {
+  const actualizacion = req.body
+  await Articulo.update(
+    {
+      titulo: actualizacion.titulo,
+      contenido: actualizacion.contenido,
+    },
+    { where: { id: req.params.id } },
+  );
+
+  res.redirect("/")
+}
+
 
 module.exports = {
   mostrarArticulosAdmin,
@@ -85,4 +116,8 @@ module.exports = {
   crearArticulo,
   renderCrearArticulo,
   renderModificarArticulo,
+  crearNuevoArticulo,
+  guardarArticulo,
+  editarArticulo,
+  actualizarArticulo,
 };

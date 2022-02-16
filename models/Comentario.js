@@ -9,13 +9,13 @@ module.exports = (sequelize, Model, DataType) => {
         autoIncrement: true,
       },
       contenido: DataType.STRING(900),
-      email: {
-        type: DataType.STRING,
-        validate: {
-          isEmail: true,
-        },
-      },
-      nombre: DataType.STRING,
+      // email: {
+      //   type: DataType.STRING,
+      //   validate: {
+      //     isEmail: true,
+      //   },
+      // },
+      // nombre: DataType.STRING,
     },
     {
       sequelize,

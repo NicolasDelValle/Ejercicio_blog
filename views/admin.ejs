@@ -26,11 +26,16 @@
     <!-- Page Header-->
     <header class="masthead p-3 border-bottom">
       <div class="container position-relative px-4 px-lg-5">
-        <div class="row gx-4 gx-lg-5 justify-content-center">
-          <div class="col-md-10 col-lg-8 col-xl-7">
+        <div class="row gx-4 gx-lg-5">
+          <div class="col-md-10 col-lg-8 col-xl-7 d-flex justify-content-between align-items-center">
             <div class="site-heading">
               <h1>Clean Blog</h1>
               <span class="subheading">A Blog Theme by Start Bootstrap</span>
+            </div>
+            <div>
+              <a class="btn btn-primary text-uppercase" id="submitButton" href="/admin/crear-articulo">
+                Crear Artículo
+              </a>
             </div>
           </div>
         </div>
@@ -41,9 +46,9 @@
       <div class="row gx-4 gx-lg-5 justify-content-center">
         <div class="col-md-10 col-lg-8 col-xl-7">
           <!-- Post preview-->
-          <% for(const articulo of Articulos) {%>
+          <% for(const articulo of articulos) {%>
           <div class="post-preview m-3 p-2 border border-3 rounded">
-            <a class="btn btn-primary" href="/admin/modificar/<%- articulo.id %>" role="button"
+            <a class="btn btn-primary" href="/admin/editar-articulo/<%- articulo.id %>" role="button"
               >EDITAR <i class="bi bi-pencil-square"></i
             ></a>
             <button

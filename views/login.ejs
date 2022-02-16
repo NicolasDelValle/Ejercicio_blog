@@ -14,7 +14,7 @@
       crossorigin="anonymous"
     />
 
-    <title>Hello, world!</title>
+    <title>Login</title>
   </head>
   <body class="bg-light">
     <!-- Navigation-->
@@ -35,35 +35,26 @@
 
     <!-- Main Content-->
     <div class="container px-4 px-lg-5">
-      <div class="row gx-4 gx-lg-5">
-        <% for(const articulo of articulos) { %>
-        <div class="col-xs-12 col-sm-12 col-lg-6">
-          <div class="card m-3 shadow rounded-end">
-            <div class="card-body bg-white d-flex align-items-center p-2">
-              <div class="img-container">
-                <a href="/articulo/<%- articulo.id %>">
-                  <img class="mh-100" src="<%- articulo.imagen %> " alt="Imagen de articulo" />
-                </a>
-              </div>
-
-              <div class="p-2">
-                <h5 class="text-dark card-title">
-                  <a href="/articulo/<%- articulo.id %>" class="text-decoration-none"
-                    ><%- articulo.titulo %></a
-                  >
-                </h5>
-
-                <p class="card-text"><%- articulo.contenido.substring(0,100) + "..." %></p>
-
-                <a href="/articulo/<%- articulo.id %>" class="btn btn-primary" style="float: right;">Ver más</a>
-              </div>
+      <section class="row rounded-3 shadow bg-white py-5 my-5 mx-auto justify-content-center" style="width: 60%;">
+          <form action="/login" method="POST" class="col-lg-8">
+            <h1 class="mb-4">Login de usuario</h1>
+            <div class="my-3">
+              <label for="email" class="form-label">Email</label>
+              <input
+                type="email"
+                class="form-control"
+                id="email"
+                name="email"
+                placeholder="Ingrese su email aquí..."
+                aria-describedby="email"
+              />
+            <div class="my-3">
+              <label for="password" class="form-label">Contraseña</label>
+              <input type="password" class="form-control" id="password" name="password" placeholder="Ingrese su contraseña aquí..." />
             </div>
-          </div>
-        </div>
-        <% } %>
-        <!-- Divider-->
-        <!-- Post preview-->
-      </div>
+            <button type="submit" class="btn btn-primary mt-3">Login</button>
+          </form>
+      </section>
     </div>
     <!-- Footer-->
     <%- include("partials/footer") %>
