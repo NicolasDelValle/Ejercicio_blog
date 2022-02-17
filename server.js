@@ -7,7 +7,7 @@ const APP_PORT = process.env.APP_PORT || 3000;
 const app = express();
 const session = require("express-session");
 const passport = require("./passport");
-const userGlobally = require("./middlewares/userGlobally")
+const userGlobally = require("./middlewares/userGlobally");
 
 const SequelizeStore = require("connect-session-sequelize")(session.Store);
 const { sequelize } = require("./models");

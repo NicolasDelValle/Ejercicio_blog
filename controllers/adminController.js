@@ -2,7 +2,7 @@ const { Articulo, User } = require("../models");
 const formidable = require("formidable");
 
 async function mostrarArticulosAdmin(req, res) {
-  const articulos = await Articulo.findAll( {where: { userId: req.user.id }});
+  const articulos = await Articulo.findAll();
   res.render("admin", { articulos });
 }
 
@@ -78,25 +78,25 @@ async function crearArticulo(req, res) {
   });
 }
 function crearNuevoArticulo(req, res) {
-  res.render("crear-articulo")
+  res.render("crear-articulo");
 }
-async function guardarArticulo (req, res) {
+async function guardarArticulo(req, res) {
   const articulo = req.body;
-    await Articulo.create({
-      titulo: articulo.titulo,
-      contenido: articulo.contenido,
-      imagen: articulo.imagen,
-      userId: req.user.id,
-    });
-  res.redirect("/")
+  await Articulo.create({
+    titulo: articulo.titulo,
+    contenido: articulo.contenido,
+    imagen: articulo.imagen,
+    userId: req.user.id,
+  });
+  res.redirect("/");
 }
 
 async function editarArticulo(req, res) {
   const articulo = await Articulo.findByPk(req.params.id, { include: { all: true, nested: true } });
-  res.render("editar-articulo", { articulo })
+  res.render("editar-articulo", { articulo });
 }
 async function actualizarArticulo(req, res) {
-  const actualizacion = req.body
+  const actualizacion = req.body;
   await Articulo.update(
     {
       titulo: actualizacion.titulo,
@@ -105,9 +105,8 @@ async function actualizarArticulo(req, res) {
     { where: { id: req.params.id } },
   );
 
-  res.redirect("/")
+  res.redirect("/");
 }
-
 
 module.exports = {
   mostrarArticulosAdmin,

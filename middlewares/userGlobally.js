@@ -1,6 +1,6 @@
-function userGlobally (req, res, next) {
-    res.locals.user = req.user
-    next()
-  };
+function userGlobally(req, res, next) {
+  res.locals.user = req.user;
+  next();
+}
 
-  module.exports = userGlobally
+module.exports = userGlobally;

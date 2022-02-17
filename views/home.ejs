@@ -18,7 +18,7 @@
   </head>
   <body class="bg-light">
     <!-- Navigation-->
-    <%- include("partials/nav") %>
+    <%- include("partials/nav") %> <% user %>
     <!-- Page Header-->
     <!--<header class="masthead" style="background-image: url('assets/home-bg.jpg')">
       <div class="container position-relative px-4 px-lg-5">
@@ -55,7 +55,9 @@
 
                 <p class="card-text"><%- articulo.contenido.substring(0,100) + "..." %></p>
 
-                <a href="/articulo/<%- articulo.id %>" class="btn btn-primary" style="float: right;">Ver más</a>
+                <a href="/articulo/<%- articulo.id %>" class="btn btn-primary" style="float: right"
+                  >Ver más</a
+                >
               </div>
             </div>
           </div>
