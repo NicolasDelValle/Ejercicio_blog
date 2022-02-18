@@ -1,4 +1,4 @@
-function ensureAuthenticated(req, res, next) {
+function userIsLogged(req, res, next) {
   if (req.isAuthenticated()) {
     return next();
   } else {
@@ -6,4 +6,4 @@ function ensureAuthenticated(req, res, next) {
   }
 }
 
-module.exports = ensureAuthenticated;
+module.exports = userIsLogged;

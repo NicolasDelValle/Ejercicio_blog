@@ -4,7 +4,7 @@ const { User } = require("./models");
 
 module.exports = (app) => {
   app.use(passport.session());
-  
+
   passport.use(
     new LocalStrategy({ usernameField: "email", passwordField: "password" }, async function verify(
       username,
@@ -18,12 +18,17 @@ module.exports = (app) => {
         if (!user) {
           return cb(null, false, { message: "Incorrect email or password." });
         }
+        if (!user.validPassword(password)) {
+          return cb(null, false, { message: "Incorrect Username or password." });
+        }
+        console.log(user);
         return cb(null, user);
       } catch (error) {
         return cb(error);
       }
     }),
   );
+
   passport.serializeUser(function (user, done) {
     done(null, user.id);
   });

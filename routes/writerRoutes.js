@@ -1,7 +1,7 @@
 const express = require("express");
 const route = express.Router();
 const {
-  mostrarArticulosAdmin,
+  showMyArticles,
   borrarArticulo,
   modificarArticulo,
   crearArticulo,
@@ -11,9 +11,9 @@ const {
   guardarArticulo,
   editarArticulo,
   actualizarArticulo,
-} = require("../controllers/adminController"); //Controladores
+} = require("../controllers/writerControllers"); //Controladores
 
-route.get("/", mostrarArticulosAdmin);
+route.get("/", showMyArticles);
 route.get("/eliminar/:id", borrarArticulo);
 route.post("/modificar/:id", modificarArticulo);
 route.get("/modificar/:id", renderModificarArticulo);

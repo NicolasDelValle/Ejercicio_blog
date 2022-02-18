@@ -3,7 +3,7 @@ const formidable = require("formidable");
 
 async function mostrarArticulosAdmin(req, res) {
   const articulos = await Articulo.findAll({ where: { userId: req.user.id } });
-  res.render("dashboard", { articulos, user: req.user });
+  res.render("dashboard", { articulos });
 }
 
 async function borrarArticulo(req, res) {
@@ -13,7 +13,7 @@ async function borrarArticulo(req, res) {
 }
 
 async function renderModificarArticulo(req, res) {
-  res.render("modificar", { user: req.user });
+  res.render("modificar");
 }
 
 async function modificarArticulo(req, res) {
@@ -23,7 +23,7 @@ async function modificarArticulo(req, res) {
   res.redirect("/admin");
 }
 async function renderCrearArticulo(req, res) {
-  res.render("crear", { user: req.user });
+  res.render("crear");
 }
 async function crearArticulo(req, res) {
   const form = formidable({
@@ -78,7 +78,7 @@ async function crearArticulo(req, res) {
   });
 }
 function crearNuevoArticulo(req, res) {
-  res.render("crear-articulo", { user: req.user });
+  res.render("crear-articulo");
 }
 async function guardarArticulo(req, res) {
   const articulo = req.body;
@@ -93,7 +93,7 @@ async function guardarArticulo(req, res) {
 
 async function editarArticulo(req, res) {
   const articulo = await Articulo.findByPk(req.params.id, { include: { all: true, nested: true } });
-  res.render("editar-articulo", { articulo, user: req.user });
+  res.render("editar-articulo", { articulo });
 }
 async function actualizarArticulo(req, res) {
   const actualizacion = req.body;

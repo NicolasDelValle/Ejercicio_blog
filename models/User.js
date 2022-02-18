@@ -1,12 +1,11 @@
 const bcrypt = require("bcryptjs");
 
 module.exports = (sequelize, Model, DataType) => {
-  class User extends Model {}
-
-  // sequelize.addHook("beforeCreate", async(user) => {
-  //   const hashedPassword = await bcrypt.hash(user.password, 8);
-  //   user.password = hashedPassword;
-  // });
+  class User extends Model {
+    async validPassword(password) {
+      return await bcrypt.compare(password, this.password);
+    }
+  }
 
   User.init(
     {
@@ -15,8 +14,8 @@ module.exports = (sequelize, Model, DataType) => {
         primaryKey: true,
         autoIncrement: true,
       },
-      nombre: DataType.STRING,
-      apellido: DataType.STRING,
+      firstname: DataType.STRING,
+      lastname: DataType.STRING,
       email: {
         type: DataType.STRING,
         validate: {
@@ -28,17 +27,16 @@ module.exports = (sequelize, Model, DataType) => {
     {
       sequelize,
       modelName: "user",
-      timestamps: true,
+      timestamps: false,
+      createdAt: false,
+      updatedAt: false,
     },
   );
 
   User.beforeCreate(async (user, options) => {
-    const hashedPassword = await bcrypt.hash(user.password, 8);
-    user.password = hashedPassword;
+    user.password = await bcrypt.hash(user.password, 7);
   });
 
   console.log("[DATABASE] CREADA LA TABLA USER");
   return User;
 };
-
-// beforeBulkCreate(instances, options)

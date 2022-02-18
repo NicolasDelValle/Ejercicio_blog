@@ -1,8 +1,8 @@
 const { User } = require("../models");
-const passport = require("passport")
+const passport = require("passport");
 
 function register(req, res) {
-  res.render("register");
+  res.render("register", { user: req.user });
 }
 
 async function storeUser(req, res) {
@@ -17,12 +17,12 @@ async function storeUser(req, res) {
 }
 
 function login(req, res) {
-  res.render("login");
+  res.render("login", { user: req.user });
 }
 
 async function logout(req, res) {
- await req.logout();
-  res.redirect('/');
+  await req.logout();
+  res.redirect("/");
 }
 
 module.exports = {
