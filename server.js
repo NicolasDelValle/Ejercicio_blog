@@ -29,7 +29,7 @@ app.set("view engine", "ejs");
 passport(app);
 app.use(routes);
 
-dbInitialSetup();
+//dbInitialSetup();
 
 app.listen(APP_PORT, () => {
   console.log(`[Express] Servidor Corriendo en el puerto: ${APP_PORT}`);

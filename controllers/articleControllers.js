@@ -9,11 +9,10 @@ async function showAllArticles(req, res) {
 
 async function showArticle(req, res) {
   const { id } = req.params;
-  //console.log(id);
-
-  const articulo = await Articulo.findByPk(req.params.id, { include: { all: true, nested: true } });
-  //res.json(articulo);
+  const articulo = await Articulo.findByPk(id, { include: { all: true, nested: true } });
+  console.log(articulo);
   res.render("articulo", { articulo, user: req.user });
+  //res.json(req.user.lastname);
 }
 
 async function storeComments(req, res) {

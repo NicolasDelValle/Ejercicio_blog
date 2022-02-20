@@ -5,7 +5,7 @@ const {
   showAllArticles,
   showArticle,
   storeComments,
-} = require("../controllers/articulosControllers");
+} = require("../controllers/articleControllers");
 //require middlewares
 const userIsLogged = require("../middlewares/userIsLogged");
 
