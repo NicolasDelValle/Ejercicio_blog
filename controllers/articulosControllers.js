@@ -15,6 +15,7 @@ async function showArticle(req, res) {
   //res.json(articulo);
   res.render("articulo", { articulo, user: req.user });
 }
+
 async function storeComments(req, res) {
   const text = req.body;
   await Comentario.create({
